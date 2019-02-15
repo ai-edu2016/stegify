@@ -5,11 +5,11 @@
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  
 
 
-## Overview
-`stegify` is a simple command line tool capable of fully transparent hiding any file within an image.
-This technique is known as LSB (Least Significant Bit) [steganography](https://en.wikipedia.org/wiki/steganography) 
+## 说明
+这是一个用于将文件隐藏于图片的工具。
+这种技术称为LSB (Least Significant Bit) [steganography](https://en.wikipedia.org/wiki/steganography) 
 
-## Demonstration
+## 演示
 
 | Carrier                                | Data                                | Result                                               |
 | ---------------------------------------| ------------------------------------|------------------------------------------------------|
@@ -17,14 +17,14 @@ This technique is known as LSB (Least Significant Bit) [steganography](https://e
 
 The `Result` file contains the `Data` file hidden in it. And as you can see it is fully transparent.
 
-## Install
+## 安装
 ```
 $ go get -u github.com/DimitarPetrov/stegify
 ```
 
-## Usage
+## 用法
 
-### As a command line tool
+### 作为命令行工具
 ```
 $ stegify -op encode -carrier <file-name> -data <file-name> -result <file-name>
 $ stegify -op decode -carrier <file-name> -result <file-name>
@@ -40,13 +40,9 @@ The result file won't have any file extension and therefore it should be specifi
 
 In both cases the flag `-result` could be omitted and it will be used the default file name: `result`
 
-### Programmatically in your code
+### 在代码中使用
 
-`stegify` can be used programmatically too and it provides easy to use functions working with file names
-or raw Readers and Writers. You can visit [godoc](https://godoc.org/github.com/DimitarPetrov/stegify) under
-`steg` package for details.
+你可以看看 [godoc](https://godoc.org/github.com/DimitarPetrov/stegify) 中的详细信息。
 
-## Disclaimer
-
-If carrier file is in jpeg or jpg format, after encoding the result file image will be png encoded (therefore it may be bigger in size)
-despite of file extension inherited from the original carrier file (which is .jpeg or .jpg).
+## 说明
+如果载体文件是jpeg或者jpg格式，在编码后返回的文件为png格式，尽管扩展名为jpeg或者jpg。
